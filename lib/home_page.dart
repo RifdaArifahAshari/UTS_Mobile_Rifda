@@ -4,7 +4,9 @@ import 'cart_page.dart';
 import 'profile_page.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final String? username; // Tambahan biar bisa nerima username dari login
+
+  const HomePage({super.key, this.username}); // biar opsional (nggak wajib)
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class HomePage extends StatelessWidget {
         'image': 'assets/images/bunga_krisan.jpg',
         'price': 80000,
         'description':
-            'Krisan  penuh warna, cocok untuk ucapan selamat dan doa 💐',
+            'Krisan penuh warna, cocok untuk ucapan selamat dan doa 💐',
       },
     ];
 
@@ -45,7 +47,7 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         title: Row(
           children: [
-            Image.asset('assets/images/petaluxe.png', height: 60),
+            Image.asset('assets/images/petaluxe.png', height: 50),
             const SizedBox(width: 10),
             const Text(
               'Toko Bunga Petaluxe',
@@ -84,6 +86,17 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
+            // 👇 Tambahan: sapaan dinamis dari login
+            Text(
+              'Halo, ${username ?? 'Pelanggan'} 🌸',
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 96, 9, 38),
+              ),
+            ),
+            const SizedBox(height: 8),
+
             const Text(
               'Selamat Datang di Petaluxe 💐',
               style: TextStyle(
