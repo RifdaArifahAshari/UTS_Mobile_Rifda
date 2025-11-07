@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+import 'login_page.dart'; // pastikan file ini ada di folder lib
 
 void main() {
   runApp(const FlowerShopApp());
@@ -12,6 +12,7 @@ class FlowerShopApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Toko Bunga Cantik',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: const Color.fromARGB(255, 255, 198, 228),
         colorScheme: ColorScheme.fromSwatch().copyWith(
@@ -19,8 +20,7 @@ class FlowerShopApp extends StatelessWidget {
         ),
         fontFamily: 'Poppins',
       ),
-      home: const HomePage(),
-      debugShowCheckedModeBanner: false,
+      home: const LoginPage(), // ✅ ini wajib LoginPage
     );
   }
 }
